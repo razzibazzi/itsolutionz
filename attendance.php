@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: login.html');
     exit();
 }
 
@@ -118,7 +118,7 @@ try {
             background-color: #f8f9fa;
         }
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .card {
@@ -131,7 +131,7 @@ try {
             color: white;
         }
         .attendance-card {
-            background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+            background: linear-gradient(135deg, #198754 0%, #157347 100%);
             color: white;
         }
         .status-option {
@@ -143,12 +143,12 @@ try {
             transition: all 0.3s ease;
         }
         .status-option:hover {
-            border-color: #007bff;
+            border-color: #28a745;
             background-color: #f8f9fa;
         }
         .status-option.selected {
-            border-color: #007bff;
-            background-color: #e3f2fd;
+            border-color: #28a745;
+            background-color: #e6f4ea;
         }
         .attendance-item {
             background-color: #f8f9fa;
@@ -159,7 +159,7 @@ try {
         }
         .status-item {
             background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
+            border-left: 4px solid #28a745;
             padding: 10px 15px;
             margin: 5px 0;
             border-radius: 5px;
@@ -170,10 +170,11 @@ try {
             transition: all 0.3s ease;
         }
         .form-control:focus, .form-select:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
         }
     </style>
+    <link href="theme.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->

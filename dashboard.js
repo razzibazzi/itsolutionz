@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadDashboardData() {
     const formData = new FormData();
-    formData.append('action', 'get_dashboard_data');
+    formData.append('operation', 'get_dashboard_data');
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -48,13 +48,13 @@ function updateDashboard(data) {
             if (statusIcon) {
                 switch(data.current_status.facStatus_statusMId) {
                     case 1: // In office
-                        statusIcon.style.color = '#28a745';
+                        statusIcon.style.color = '#2d9f5f';
                         break;
                     case 2: // Out
-                        statusIcon.style.color = '#dc3545';
+                        statusIcon.style.color = '#6b8e6b';
                         break;
                     case 3: // In class
-                        statusIcon.style.color = '#007bff';
+                        statusIcon.style.color = '#20c997';
                         break;
                 }
             }
@@ -119,21 +119,14 @@ function formatTime(timeString) {
 
 function logout() {
     const formData = new FormData();
-    formData.append('action', 'logout');
-    
-    fetch('operations.php', {
+    formData.append('operation', 'logout');
+
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = 'index.html';
-        }
-    })
-    .catch(error => {
-        console.error('Error during logout:', error);
-        window.location.href = 'index.html';
+    .finally(() => {
+        window.location.href = 'login.html';
     });
 }
 

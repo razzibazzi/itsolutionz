@@ -57,7 +57,7 @@ try {
             background-color: #f8f9fa;
         }
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d9f5f 0%, #20c997 100%);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .card {
@@ -70,7 +70,7 @@ try {
             transform: translateY(-5px);
         }
         .status-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d9f5f 0%, #20c997 100%);
             color: white;
         }
         .module-card {
@@ -86,13 +86,14 @@ try {
             border-radius: 20px;
         }
         .schedule-item {
-            background-color: #e3f2fd;
-            border-left: 4px solid #2196f3;
+            background-color: #d1e7dd;
+            border-left: 4px solid #1e7e45;
             padding: 10px 15px;
             margin: 5px 0;
             border-radius: 5px;
         }
     </style>
+    <link href="theme.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->

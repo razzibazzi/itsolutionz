@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadSchedule() {
     const formData = new FormData();
-    formData.append('action', 'get_schedule');
+    formData.append('operation', 'get_schedule');
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -144,9 +144,9 @@ function saveSchedule() {
     }
     
     // Add action
-    formData.append('action', 'save_schedule');
+    formData.append('operation', 'save_schedule');
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -175,10 +175,10 @@ function saveSchedule() {
 function deleteSchedule(scheduleId) {
     if (confirm('Are you sure you want to delete this schedule?')) {
         const formData = new FormData();
-        formData.append('action', 'delete_schedule');
+        formData.append('operation', 'delete_schedule');
         formData.append('scheduleId', scheduleId);
         
-        fetch('operations.php', {
+        fetch('index.php', {
             method: 'POST',
             body: formData
         })
@@ -231,21 +231,14 @@ function showAlert(message, type) {
 
 function logout() {
     const formData = new FormData();
-    formData.append('action', 'logout');
-    
-    fetch('operations.php', {
+    formData.append('operation', 'logout');
+
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = 'index.html';
-        }
-    })
-    .catch(error => {
-        console.error('Error during logout:', error);
-        window.location.href = 'index.html';
+    .finally(() => {
+        window.location.href = 'login.html';
     });
 }
 

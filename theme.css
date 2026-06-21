@@ -1,0 +1,309 @@
+/* Faculty Attendance System — unified green theme */
+:root {
+    --green-primary: #2d9f5f;
+    --green-primary-dark: #1e7e45;
+    --green-accent: #20c997;
+    --green-accent-dark: #1aa179;
+    --green-light: #e8f5ee;
+    --green-muted: #d1e7dd;
+    --green-muted-hover: #badbcc;
+    --page-bg: #f0f7f3;
+    --green-gradient: linear-gradient(135deg, #2d9f5f 0%, #20c997 100%);
+    --green-gradient-dark: linear-gradient(135deg, #1e7e45 0%, #157347 100%);
+    --green-shadow: rgba(45, 159, 95, 0.25);
+    --bs-primary: #2d9f5f;
+    --bs-primary-rgb: 45, 159, 95;
+    --bs-success: #20c997;
+    --bs-success-rgb: 32, 201, 151;
+    --bs-link-color: #2d9f5f;
+    --bs-link-hover-color: #1e7e45;
+}
+
+body {
+    background-color: var(--page-bg);
+}
+
+.navbar {
+    background: var(--green-gradient) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background-color: var(--green-light);
+    border-bottom: 1px solid var(--green-muted);
+    font-weight: 600;
+    color: var(--green-primary-dark);
+}
+
+.status-card {
+    background: var(--green-gradient) !important;
+    color: white;
+}
+
+.attendance-card {
+    background: var(--green-gradient-dark) !important;
+    color: white;
+}
+
+.schedule-item {
+    background-color: var(--green-muted);
+    border-left: 4px solid var(--green-primary-dark);
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.schedule-item:hover {
+    background-color: var(--green-muted-hover);
+}
+
+.day-header {
+    background: var(--green-gradient);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px 0 15px 0;
+}
+
+.day-badge {
+    background: var(--green-gradient);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--green-primary);
+    border-color: var(--green-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--green-primary-dark);
+    border-color: var(--green-primary-dark);
+}
+
+.btn-success {
+    background-color: var(--green-accent);
+    border-color: var(--green-accent);
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: var(--green-accent-dark);
+    border-color: var(--green-accent-dark);
+}
+
+.btn-outline-primary {
+    color: var(--green-primary);
+    border-color: var(--green-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--green-primary);
+    border-color: var(--green-primary);
+}
+
+.text-primary {
+    color: var(--green-primary) !important;
+}
+
+.spinner-border.text-primary {
+    color: var(--green-primary) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 0.2rem var(--green-shadow);
+}
+
+.status-option.selected {
+    border-color: var(--green-primary) !important;
+    background-color: var(--green-light) !important;
+}
+
+.status-option:hover {
+    border-color: var(--green-accent) !important;
+    background-color: var(--green-light);
+}
+
+/* Login page */
+body.login-page {
+    background: var(--green-gradient);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-header {
+    background: var(--green-gradient);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-body {
+    padding: 2rem;
+}
+
+.login-body .form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-login {
+    background: var(--green-gradient);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(45, 159, 95, 0.4);
+}
+
+.login-body .loading {
+    display: none;
+}
+
+/* Single password field with one toggle (hides browser duplicate icon) */
+.password-field-wrap {
+    position: relative;
+}
+
+.password-field-wrap .password-field-input {
+    width: 100%;
+    padding-right: 2.85rem;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.password-field-wrap .password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: none;
+    background: transparent;
+    color: var(--green-primary);
+    padding: 0.4rem 0.65rem;
+    line-height: 1;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.password-field-wrap .password-toggle-btn:hover,
+.password-field-wrap .password-toggle-btn:focus {
+    background: var(--green-light);
+    color: var(--green-primary-dark);
+    box-shadow: none;
+}
+
+.password-field-wrap .password-field-input:focus {
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 0.2rem var(--green-shadow);
+}
+
+.password-input-group .form-control {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.password-toggle-btn {
+    border: 2px solid #e9ecef;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    background: #fff;
+    color: var(--green-primary);
+    padding: 0 14px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.password-toggle-btn:hover,
+.password-toggle-btn:focus {
+    background: var(--green-light);
+    color: var(--green-primary-dark);
+    border-color: #e9ecef;
+    box-shadow: none;
+}
+
+.password-input-group .form-control:focus {
+    box-shadow: none;
+    border-color: var(--green-primary);
+}
+
+.password-input-group .form-control:focus + .password-toggle-btn {
+    border-color: var(--green-primary);
+}
+
+.password-input-group:focus-within .form-control,
+.password-input-group:focus-within .password-toggle-btn {
+    border-color: var(--green-primary);
+}
+
+.password-input-group:focus-within {
+    box-shadow: 0 0 0 0.2rem var(--green-shadow);
+    border-radius: 10px;
+}
+
+/* Hide browser-native password reveal (Edge/Chrome duplicate eye inside input) */
+.password-field-wrap input[type="password"]::-ms-reveal,
+.password-field-wrap input[type="password"]::-ms-clear,
+.password-input-group input[type="password"]::-ms-reveal,
+.password-input-group input[type="password"]::-ms-clear {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.password-field-wrap input[type="password"]::-webkit-textfield-decoration-container,
+.password-input-group input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.password-field-wrap input[type="password"]::-webkit-credentials-auto-fill-button,
+.password-input-group input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden !important;
+    display: none !important;
+    pointer-events: none !important;
+    position: absolute;
+    right: 0;
+    width: 0 !important;
+    height: 0 !important;
+}

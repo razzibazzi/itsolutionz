@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadCurrentStatus() {
     const formData = new FormData();
-    formData.append('action', 'get_dashboard_data');
+    formData.append('operation', 'get_dashboard_data');
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -66,9 +66,9 @@ function displayCurrentStatus(currentStatus) {
 
 function getStatusColor(statusId) {
     switch(statusId) {
-        case 1: return '#28a745'; // In office
-        case 2: return '#dc3545'; // Out
-        case 3: return '#007bff'; // In class
+        case 1: return '#2d9f5f'; // In office
+        case 2: return '#6b8e6b'; // Out
+        case 3: return '#20c997'; // In class
         default: return '#6c757d';
     }
 }
@@ -76,9 +76,9 @@ function getStatusColor(statusId) {
 function loadStatusOptions() {
     // Hardcoded status options based on the database
     const statusOptions = [
-        { id: 1, name: 'In office', icon: 'fas fa-building', color: '#28a745' },
-        { id: 2, name: 'Out', icon: 'fas fa-sign-out-alt', color: '#dc3545' },
-        { id: 3, name: 'In class', icon: 'fas fa-chalkboard-teacher', color: '#007bff' }
+        { id: 1, name: 'In office', icon: 'fas fa-building', color: '#2d9f5f' },
+        { id: 2, name: 'Out', icon: 'fas fa-sign-out-alt', color: '#6b8e6b' },
+        { id: 3, name: 'In class', icon: 'fas fa-chalkboard-teacher', color: '#20c997' }
     ];
     
     const container = document.getElementById('statusOptions');
@@ -118,10 +118,10 @@ function selectStatus(statusId) {
 
 function checkTodayAttendance() {
     const formData = new FormData();
-    formData.append('action', 'get_attendance_history');
+    formData.append('operation', 'get_attendance_history');
     formData.append('limit', 1);
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -158,9 +158,9 @@ function checkTodayAttendance() {
 
 function markAttendance() {
     const formData = new FormData();
-    formData.append('action', 'set_attendance');
+    formData.append('operation', 'set_attendance');
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -211,10 +211,10 @@ function markAttendance() {
 
 function loadAttendanceHistory() {
     const formData = new FormData();
-    formData.append('action', 'get_attendance_history');
+    formData.append('operation', 'get_attendance_history');
     formData.append('limit', 30);
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -283,11 +283,11 @@ function handleStatusSubmit(e) {
     const noteValue = note ? note.value.trim() : '';
     
     const formData = new FormData();
-    formData.append('action', 'set_status');
+    formData.append('operation', 'set_status');
     formData.append('statusId', selectedStatusId);
     formData.append('note', noteValue);
     
-    fetch('operations.php', {
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
@@ -378,21 +378,14 @@ function showAlert(message, type) {
 
 function logout() {
     const formData = new FormData();
-    formData.append('action', 'logout');
-    
-    fetch('operations.php', {
+    formData.append('operation', 'logout');
+
+    fetch('index.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = 'index.html';
-        }
-    })
-    .catch(error => {
-        console.error('Error during logout:', error);
-        window.location.href = 'index.html';
+    .finally(() => {
+        window.location.href = 'login.html';
     });
 }
 
